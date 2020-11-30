@@ -1,0 +1,215 @@
+.navbar {
+  box-sizing: border-box;
+  width: 100%;
+  height: 80px;
+  padding: 5px;
+  margin: 0;
+  background: linear-gradient(to bottom, rgb(0, 0, 0) 10%, transparent);
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  left: 0;
+  top: 0;
+}
+
+.navbar__col {
+  box-sizing: border-box;
+  width: 30%;
+  padding: 0;
+  margin: 0 5px;
+  display: flex;
+}
+
+.navbar__col:nth-last-child(1) {
+  justify-content: flex-end;
+  margin: 0 1.5rem;
+}
+
+.navbar__col__subcol {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar__col__input_icon {
+  display: none;
+}
+
+.navbar__col input {
+  display: none;
+}
+
+.navbar__col button {
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  background-color: white;
+  transition: padding 0.2s ease-out;
+}
+
+.navbar__col button:active,
+.navbar__col button:hover {
+  padding: 13px 23px;
+}
+
+.navbar__col button:focus {
+  padding: 13px 23px;
+  outline: none;
+}
+
+.logo {
+  margin: 0 2rem;
+  color: white;
+  font-weight: 700;
+  font-size: 1.7rem;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.slidebox {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 600px;
+  margin: 0;
+  padding: 15px;
+  background: linear-gradient(to top, rgb(34, 34, 34) 5%, transparent),
+    url('../assets/images/mandalorian-poster.png') top/cover no-repeat border-box, #222222;
+  border-bottom: 1px solid #313131;
+}
+
+.slidebox__movie-title {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 10px;
+  padding: 0 2rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: white;
+  transition: color 0.2s ease-out;
+}
+
+.slidebox__movie-title:hover {
+  color: #e6269c;
+  cursor: pointer;
+}
+
+.sliderbox__button {
+  display: none;
+}
+
+.sliderbox__mobile__button {
+  display: inline-block;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  margin-top: -5px;
+  margin-right: 5px;
+  padding: 0;
+  border-radius: 100px;
+  background-color: #e6259c;
+}
+
+@media (min-width: 600px) {
+  .navbar__col input {
+    display: inline;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 0.7rem;
+    border: none;
+    background: rgba(150, 150, 150, 0.5);
+    color: white;
+    transition: font-size 0.2s ease-out;
+  }
+
+  .navbar__col input:active,
+  .navbar__col input:focus {
+    border: 0;
+    outline: none;
+    font-size: 0.8rem;
+    background-color: rgba(185, 185, 185, 0.5);
+  }
+
+  .navbar__col__input_icon {
+    display: inline;
+    width: 100%;
+    position: relative;
+  }
+
+  .navbar__col__input_icon i {
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    color: white;
+  }
+
+  .global-search:focus + i {
+    display: none;
+  }
+
+  .slidebox__carusel {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 10px;
+    height: 160px;
+  }
+
+  .slidebox__movie-title {
+    font-size: 3rem;
+  }
+
+  .sliderbox__carusel__col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .sliderbox__carusel__col:first-child {
+    border-top: 1px solid #535353;
+  }
+
+  .sliderbox__button {
+    display: inline;
+    padding: 15px 25px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    background-color: white;
+    transition: padding 0.1s ease-out;
+    background-color: #e6269c;
+  }
+
+  .sliderbox__button:active,
+  .sliderbox__button:hover {
+    padding: 18px 28px;
+  }
+
+  .sliderbox__button_free {
+    background-color: white;
+    padding: 3px;
+    color: #e6269c;
+    border-radius: 6px;
+  }
+
+  .sliderbox__mobile__button {
+    display: none;
+  }
+}
