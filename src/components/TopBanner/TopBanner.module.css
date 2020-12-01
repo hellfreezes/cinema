@@ -1,0 +1,103 @@
+.Banner {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 600px;
+  margin: 0;
+  padding: 15px;
+  background: linear-gradient(to top, rgb(34, 34, 34) 5%, transparent),
+    url('../../assets/images/mandalorian-poster.png') top/cover no-repeat border-box, #222222;
+  border-bottom: 1px solid #313131;
+}
+
+.MovieTitle {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 10px;
+  padding: 0 2rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: white;
+  transition: color 0.2s ease-out;
+}
+
+.MovieTitle:hover {
+  color: #e6269c;
+  cursor: pointer;
+}
+
+.CarouselColumn button {
+  display: none;
+}
+
+.MobileButton {
+  display: inline-block;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  margin-top: -5px;
+  margin-right: 5px;
+  padding: 0;
+  border-radius: 100px;
+  background-color: #e6259c;
+}
+
+@media (min-width: 600px) {
+  .Carousel {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 10px;
+    height: 160px;
+  }
+
+  .MovieTitle {
+    font-size: 3rem;
+  }
+
+  .CarouselColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .CarouselColumn:first-child {
+    border-top: 1px solid #535353;
+  }
+
+  .CarouselColumn button {
+    display: inline;
+    padding: 15px 25px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    background-color: white;
+    transition: padding 0.1s ease-out;
+    background-color: #e6269c;
+  }
+
+  .CarouselColumn button:active,
+  .CarouselColumn button:hover {
+    padding: 18px 28px;
+  }
+
+  .ButtonFree {
+    background-color: white;
+    padding: 3px;
+    color: #e6269c;
+    border-radius: 6px;
+  }
+
+  .MobileButton {
+    display: none;
+  }
+}

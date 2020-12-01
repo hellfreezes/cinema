@@ -1,0 +1,94 @@
+.Footer {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  margin: 0;
+  padding: 40px 10px;
+  color: white;
+  background-color: #191919;
+}
+
+.TitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Icons {
+  display: flex;
+  margin: 0 32px;
+  align-items: center;
+}
+
+.Icon {
+  display: inline-block;
+  color: white;
+  transition: color 0.2s ease-out;
+}
+
+.Icon:hover {
+  color: #e6269c;
+  cursor: pointer;
+}
+
+.Row {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #535353;
+}
+
+.Column {
+  display: flex;
+  margin-top: 40px;
+  max-width: 50%;
+  flex: 0 0 50%;
+  flex-flow: column;
+}
+
+.Column:first-of-type {
+  border-top: 1px solid #535353;
+}
+
+.Column:nth-child(4) {
+  border-top: none;
+}
+
+ul.Menu > li {
+  text-decoration: none;
+  display: block;
+  color: white;
+  font-size: 0.8rem;
+  transition: color 0.2s ease-out;
+}
+
+ul.Menu > li:hover {
+  color: #e6269c;
+  cursor: pointer;
+}
+
+ul.Menu > li:first-child {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  text-decoration: none;
+  display: block;
+  color: #c0c0c0;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+@media (min-width: 600px) {
+  .Footer {
+    padding: 70px 30px;
+  }
+
+  .Column {
+    max-width: 25%;
+    flex: 0 0 25%;
+  }
+
+  .Column:nth-child(4) {
+    border-top: 1px solid #535353;
+  }
+}
