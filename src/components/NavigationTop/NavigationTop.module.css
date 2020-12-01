@@ -1,5 +1,6 @@
 .Navbar {
   box-sizing: border-box;
+  z-index: 50;
   width: 100%;
   height: 80px;
   padding: 5px;
