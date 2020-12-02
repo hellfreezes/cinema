@@ -1,0 +1,1 @@
+export const MAIN_BANNERS_FETCH = 'MAIN_BANNERS_FETCH';

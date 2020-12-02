@@ -1,0 +1,73 @@
+.Card {
+  box-sizing: inherit;
+  display: flex;
+  flex: 0 0 20%;
+  width: 20%;
+  padding: 0;
+  margin: 0 0.5rem;
+
+  height: 100%;
+  flex-flow: column;
+  align-items: center;
+}
+
+.Canvas {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 71.75% 0;
+  background-image: url('../../assets//images/canvas/8bbe9190-4b59-4a32-96d7-100d1c280da0.jpg');
+  background-size: 100% 100%;
+  border: 1px solid #535353;
+}
+
+.Backdrop {
+  position: relative;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.Backdrop:hover {
+  opacity: 1;
+}
+
+.Title {
+  box-sizing: border-box;
+  width: 100%;
+  color: white;
+  padding: 15px 0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.Details {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.Genre {
+  color: #646464;
+  font-weight: 500;
+  font-size: 0.7rem;
+  margin-right: 3px;
+}
+
+.DetailsButton {
+  width: 30px;
+  text-align: center;
+  vertical-align: center;
+  color: white;
+  font-weight: 500;
+  font-size: 0.7rem;
+  background-color: #646464;
+  border-radius: 5px;
+  padding: 4px 6px;
+  margin-left: 3px;
+}
