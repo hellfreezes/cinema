@@ -1,15 +1,71 @@
 .Carousel {
+  position: relative;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-flow: column;
-  box-sizing: border-box;
   display: flex;
-  padding: 1rem 0.5rem;
+  padding: 1rem 0.2rem;
   border-bottom: 1px solid #535353;
+}
+
+.Side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  width: 0.2rem;
+  height: 100%;
+}
+
+.Next {
+  z-index: 10;
+  right: 0;
+  top: 0;
+  background: linear-gradient(to left, #222222 50%, transparent);
+}
+
+.Next button {
+  right: 1.5rem;
+}
+
+.Previous {
+  z-index: 10;
+  left: 0;
+  top: 0;
+  background: linear-gradient(to left, transparent, #222222 50%);
+}
+
+.Previous button {
+  left: -0.7rem;
+}
+
+.Side button {
+  position: relative;
+  display: none;
+  top: -6%;
+  z-index: 20;
+  outline: none;
+  border: none;
+  font-size: 60;
+  background: none;
+  color: white;
+}
+
+.Carousel:hover .Side button {
+  display: inline;
+}
+
+.Side button:hover,
+.Side:hover button {
+  cursor: pointer;
+  color: #e6269c;
 }
 
 .TitleRow {
   box-sizing: border-box;
+  padding: 1rem 1.2rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -57,10 +113,30 @@
 }
 
 .Cards {
+  position: relative;
   box-sizing: inherit;
   overflow: hidden;
   display: flex;
-  padding: 0;
+  padding: 0 0.5rem;
+  margin: 0;
   width: 100%;
   height: 100%;
+}
+
+@media (min-width: 600px) {
+  .Cards {
+    padding: 0 3rem;
+  }
+
+  .Side {
+    width: 3rem;
+  }
+
+  .Previous button {
+    left: 1.5rem;
+  }
+
+  .TitleRow {
+    padding: 1rem 3.5rem;
+  }
 }

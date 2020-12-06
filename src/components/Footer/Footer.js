@@ -6,6 +6,8 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 
+import TheMoviesDBLogo from '../../assets/images/the_movie_db_logo.svg';
+
 import Logo from '../Logo/Logo';
 
 const MENU = [
@@ -76,7 +78,7 @@ export default function Footer() {
     return (
       <div key={index} className={classes.Column}>
         <ul className={classes.Menu}>
-          {menuColumn.map((menuItem) => (
+          {menuColumn.map(menuItem => (
             <li key={menuItem.id}>{menuItem.title}</li>
           ))}
         </ul>
@@ -106,6 +108,15 @@ export default function Footer() {
         </div>
       </div>
       <div className={classes.Row}>{bottomNavigation}</div>
+      <div className={classes.RowPowered}>
+        <div
+          className={classes.Powered}
+          style={{ backgroundImage: `url(${TheMoviesDBLogo})` }}></div>
+      </div>
+      <div className={classes.CopyrightsRow}>
+        <div>Powered by TmDB, ReactJS, Google Firebase</div>
+        <div>Dmitriy Nozdrin, 2020</div>
+      </div>
     </div>
   );
 }

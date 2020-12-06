@@ -1,17 +1,20 @@
 .Card {
+  position: relative;
   box-sizing: inherit;
   display: flex;
-  flex: 0 0 20%;
-  width: 20%;
-  padding: 0;
-  margin: 0 0.5rem;
-
+  flex: 0 0 33.3%;
+  width: 33.3%;
+  padding: 0 0.5rem;
+  margin: 0;
   height: 100%;
   flex-flow: column;
   align-items: center;
+  transition: left 0.5s ease-out;
 }
 
 .Canvas {
+  position: relative;
+  overflow: hidden;
   box-sizing: border-box;
   width: 100%;
   padding: 71.75% 0;
@@ -20,36 +23,75 @@
   border: 1px solid #535353;
 }
 
+.CanvasAddButton {
+  z-index: 5;
+  margin: 0.1rem;
+  padding: 1rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(100px);
+  text-align: center;
+  font-size: 0.8rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease-out;
+}
+
+.CanvasAddButton:hover {
+  color: #e6259c;
+  cursor: pointer;
+}
+
+.Canvas:hover .CanvasAddButton {
+  transform: translateY(0px);
+}
+
 .Backdrop {
-  position: relative;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   left: 0;
   top: 0;
   margin: 0;
-  padding: 0;
   width: 100%;
-  z-index: 100;
-  background-color: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  z-index: 2;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .Backdrop:hover {
   opacity: 1;
 }
 
+.BackdropPlay {
+  color: white;
+  font-size: 60px;
+  transition: color 0.2s ease-out;
+}
+
+.BackdropPlay:hover {
+  cursor: pointer;
+  color: #e6259c;
+}
+
 .Title {
   box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
   width: 100%;
   color: white;
   padding: 15px 0;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.7rem;
 }
 
 .Details {
-  box-sizing: border-box;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: none;
 }
 
 .Genre {
@@ -70,4 +112,36 @@
   border-radius: 5px;
   padding: 4px 6px;
   margin-left: 3px;
+}
+
+@media (min-width: 600px) AND (max-width: 1200px) {
+  .Card {
+    flex: 0 0 25%;
+    width: 25%;
+  }
+
+  .Title {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 1201px) {
+  .Card {
+    flex: 0 0 20%;
+    width: 20%;
+  }
+
+  .Title {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .Details {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }

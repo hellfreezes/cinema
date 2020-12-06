@@ -1,12 +1,26 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
+import { useScrollPosition } from '../../hooks/useScrollPosition';
+
 import classes from './NavigationTop.module.css';
 
 import Logo from '../Logo/Logo';
 
 export default function NavigationTop() {
+  const [mainStyle, setMainStyle] = useState([classes.Navbar]);
+
+  useScrollPosition(({ prevPos, currPos }) => {
+    if (currPos.y >= -80) {
+      setMainStyle([classes.Navbar]);
+    } else if (currPos.y < prevPos.y) {
+      setMainStyle([classes.Navbar, classes.Hide]);
+    } else {
+      setMainStyle([classes.Navbar]);
+    }
+  });
+
   return (
     <Fragment>
-      <div className={classes.Navbar}>
+      <div className={mainStyle.join(' ')}>
         <div className={classes.Column}>
           <Logo />
         </div>
@@ -17,8 +31,7 @@ export default function NavigationTop() {
           </div>
         </div>
         <div className={classes.Column}>
-          <div className={classes.Subcolumn} style={{ width: '50%' }}></div>
-          <div className={classes.Subcolumn} style={{ width: '50%' }}>
+          <div className={classes.Subcolumn}>
             <button>Register</button>
           </div>
         </div>

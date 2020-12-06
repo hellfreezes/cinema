@@ -58,16 +58,19 @@
 }
 
 .MobileButton {
+  position: relative;
   display: inline-block;
   text-align: center;
   width: 30px;
   height: 30px;
-  margin-top: -5px;
+  margin-top: 2px;
   margin-right: 5px;
   padding: 0;
   z-index: 2;
-  border-radius: 100px;
-  background-color: #e6259c;
+  color: #e6259c;
+}
+
+.MobileButton:hover {
 }
 
 @media (min-width: 600px) {

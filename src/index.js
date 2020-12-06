@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import mainBannerReducer from './store/reducers/mainBanner';
+import tmdbReducer from './store/reducers/tmdb';
+import { watchTmDB } from './store/sagas';
 
 const rootReducer = combineReducers({
   mainBanner: mainBannerReducer,
+  tmdb: tmdbReducer,
 });
 
 const composeEnhancers =
@@ -18,7 +22,14 @@ const composeEnhancers =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
     : null;
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk, sagaMiddleware))
+);
+
+sagaMiddleware.run(watchTmDB);
 
 ReactDOM.render(
   <React.StrictMode>

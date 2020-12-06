@@ -1,11 +1,22 @@
 import React from 'react';
 import classes from './MovieMiniCard.module.css';
 
-const MovieMiniCard = ({ movie }) => {
+import PlayCircleFilledWhiteOutlinedIcon from '@material-ui/icons/PlayCircleFilledWhiteOutlined';
+
+const MovieMiniCard = ({ movie, moveLeft }) => {
   return (
-    <div className={classes.Card}>
-      <div className={classes.Canvas} style={{ backgroundImage: `url(${movie.image})` }}>
-        <div className={classes.Backdrop}></div>
+    <div className={classes.Card} style={{ left: `-${moveLeft}%` }}>
+      <div
+        className={classes.Canvas}
+        style={{
+          backgroundImage: `url("https://image.tmdb.org/t/p/w500${movie.image}")`,
+        }}>
+        <div className={classes.Backdrop}>
+          <div className={classes.BackdropPlay}>
+            <PlayCircleFilledWhiteOutlinedIcon style={{ font: 'inherit' }} />
+          </div>
+        </div>
+        <div className={classes.CanvasAddButton}>Add to wish list</div>
       </div>
       <div className={classes.Title}>{movie.title}</div>
       <div className={classes.Details}>

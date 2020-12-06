@@ -1,4 +1,5 @@
 .Navbar {
+  position: fixed;
   box-sizing: border-box;
   z-index: 50;
   width: 100%;
@@ -6,12 +7,16 @@
   padding: 5px;
   margin: 0;
   background: linear-gradient(to bottom, rgb(0, 0, 0) 10%, transparent);
-  position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
   left: 0;
   top: 0;
+  transition: top 0.5s ease-out;
+}
+
+.Hide {
+  top: -80px;
 }
 
 .Column {
@@ -24,7 +29,8 @@
 
 .Column:nth-last-child(1) {
   justify-content: flex-end;
-  margin: 0 1.5rem;
+  margin: 0;
+  padding: 0 1rem;
 }
 
 .Subcolumn {
