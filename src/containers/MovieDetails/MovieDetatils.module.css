@@ -1,0 +1,82 @@
+.Backdrop {
+  width: 100%;
+  height: 50vw;
+  background: url('../../assets/images/mandalorian-poster.png') top/cover
+      no-repeat border-box,
+    #222222;
+}
+
+.Gradient {
+  position: absolute;
+  z-index: 2;
+  box-sizing: inherit;
+  width: 100%;
+  height: 50vw;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to top, rgb(34, 34, 34) 5%, transparent);
+}
+
+.Main {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 15px;
+}
+
+.PosterRow {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 30%;
+}
+
+.Poster {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 71.75% 0;
+  background-image: url('../../assets/images/canvas/8bbe9190-4b59-4a32-96d7-100d1c280da0.jpg');
+  background-size: 100% 100%;
+  border: 1px solid #535353;
+}
+
+.Title {
+  width: 100%;
+  box-sizing: border-box;
+  color: white;
+  font-size: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #535353;
+}
+
+.Overview {
+  width: 100%;
+  box-sizing: border-box;
+  color: white;
+  font-size: 0.8rem;
+  padding: 1rem;
+  border-bottom: 1px solid #535353;
+}
+
+.MainRow {
+  box-sizing: border-box;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 70%;
+}
+
+@media (min-width: 600px) {
+  .Title {
+    font-size: 4rem;
+    font-weight: 500;
+  }
+
+  .Main {
+    padding: 0 65px;
+  }
+}

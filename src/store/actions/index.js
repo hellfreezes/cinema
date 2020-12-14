@@ -1,2 +1,9 @@
 export { mainBannersFetch } from './mainBanner';
-export { tmdbInitiateFetchMovies, tmdbFetchMovies } from './tmdb';
+export {
+  tmdbInitiateFetchMovies,
+  tmdbFetchMovies,
+  tmdbInitiateFetchGenres,
+  tmdbFetchGenres,
+  tmdbInitiateFetchMovie,
+  tmdbFetchMovie,
+} from './tmdb';
