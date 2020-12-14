@@ -37,14 +37,14 @@ export function* fetchGenresSaga(action) {
 }
 
 export function* fetchMovieSaga(action) {
-  const url = `/movie/${action.id}`;
+  const url = `/${action.productType}/${action.id}`;
   const params = {
     api_key: apiKey,
   };
 
   try {
     const response = yield axios.get(url, { params: { ...params } });
-    console.log(response);
+    // console.log(response);
     yield put(actions.tmdbFetchMovie(response.data));
   } catch (error) {
     console.log(error);

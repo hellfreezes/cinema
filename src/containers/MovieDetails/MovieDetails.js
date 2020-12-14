@@ -5,28 +5,37 @@ import { useParams } from 'react-router-dom';
 import * as actions from '../../store/actions';
 import classes from './MovieDetatils.module.css';
 
-export default function MovieDetails() {
+export default function MovieDetails({ type }) {
   let { id } = useParams();
-  const movie = useSelector(state => state.tmdb.movie);
+
+  const movie = useSelector((state) => state.tmdb.movie);
 
   const dispatch = useDispatch();
   const tmdbFetchMovie = useCallback(
-    id => dispatch(actions.tmdbInitiateFetchMovie(id)),
+    (id, type) => dispatch(actions.tmdbInitiateFetchMovie(id, type)),
     [dispatch]
   );
 
   useEffect(() => {
     window.scroll(0, 0);
-    tmdbFetchMovie(id);
-  }, [id, tmdbFetchMovie]);
+    tmdbFetchMovie(id, type);
+  }, [id, type, tmdbFetchMovie]);
+
+  const backdropImage = movie.backdrop_path
+    ? `url("https://image.tmdb.org/t/p/w500${movie.backdrop_path}")`
+    : null;
+  const posterImage = movie.poster_path
+    ? `url("https://image.tmdb.org/t/p/w500${movie.poster_path}")`
+    : null;
 
   return (
     <Fragment>
       <div
         className={classes.Backdrop}
         style={{
-          backgroundImage: `url("https://image.tmdb.org/t/p/w500${movie.backdrop_path}")`,
-        }}>
+          backgroundImage: backdropImage,
+        }}
+      >
         <div className={classes.Gradient}></div>
       </div>
       <div className={classes.Main}>
@@ -34,8 +43,9 @@ export default function MovieDetails() {
           <div
             className={classes.Poster}
             style={{
-              backgroundImage: `url("https://image.tmdb.org/t/p/w500${movie.poster_path}")`,
-            }}></div>
+              backgroundImage: posterImage,
+            }}
+          ></div>
         </div>
         <div className={classes.MainRow}>
           <div className={classes.Title}>{movie.original_title}</div>

@@ -10,7 +10,7 @@ const initialState = {
 const fetchGenres = (state, action) => {
   const fetchedGenres = [];
   if (action.genres && Array.isArray(action.genres)) {
-    action.genres.forEach(genre => {
+    action.genres.forEach((genre) => {
       fetchedGenres[genre.id] = genre.name;
     });
   }
@@ -27,7 +27,7 @@ const fetchGenres = (state, action) => {
 const fetchMovies = (state, action) => {
   let mappedMovies = [];
   if (action.movies && Array.isArray(action.movies)) {
-    mappedMovies = action.movies.map(movie => {
+    mappedMovies = action.movies.map((movie) => {
       let genresString = '';
       genresString =
         movie.genre_ids &&
@@ -37,6 +37,7 @@ const fetchMovies = (state, action) => {
       genresString = genresString.slice(0, -2);
       return {
         id: movie.id,
+        type: action.config.productType,
         title: movie.title || movie.name,
         image: movie.poster_path,
         backdrop: movie.backdrop_path,
@@ -61,6 +62,7 @@ const fetchMovie = (state, action) => {
   return {
     ...state,
     movie: action.movie,
+    productType: action.productType,
   };
 };
 

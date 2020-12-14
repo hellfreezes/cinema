@@ -27,7 +27,7 @@ const MovieMiniCard = ({ movie, moveLeft }) => {
     : null;
 
   const playCircleClickHandler = (event, id) => {
-    history.push('/movie/' + id);
+    history.push(`/${movie.type}/${id}`);
   };
 
   return (
@@ -36,12 +36,13 @@ const MovieMiniCard = ({ movie, moveLeft }) => {
         className={classes.Canvas}
         style={{
           backgroundImage: `url("https://image.tmdb.org/t/p/w200${movie.image}")`,
-        }}>
+        }}
+      >
         <div className={classes.Backdrop}>
           <div className={classes.BackdropPlay}>
             <PlayCircleFilledWhiteOutlinedIcon
               style={{ font: 'inherit' }}
-              onClick={event => playCircleClickHandler(event, movie.id)}
+              onClick={(event) => playCircleClickHandler(event, movie.id)}
             />
           </div>
         </div>

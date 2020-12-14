@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 
-export const tmdbInitiateFetchMovies = config => {
+export const tmdbInitiateFetchMovies = (config) => {
   return {
     type: actionTypes.TMDB_INITIATE_FETCH_MOVIES,
     config,
@@ -15,7 +15,7 @@ export const tmdbFetchMovies = (movies, config) => {
   };
 };
 
-export const tmdbInitiateFetchGenres = config => {
+export const tmdbInitiateFetchGenres = (config) => {
   return {
     type: actionTypes.TMDB_INITIATE_FETCH_GENRES,
     config,
@@ -30,16 +30,18 @@ export const tmdbFetchGenres = (genres, config) => {
   };
 };
 
-export const tmdbInitiateFetchMovie = id => {
+export const tmdbInitiateFetchMovie = (id, productType) => {
   return {
     type: actionTypes.TMDB_INITIATE_FETCH_MOVIE,
     id,
+    productType,
   };
 };
 
-export const tmdbFetchMovie = movie => {
+export const tmdbFetchMovie = (movie, productType) => {
   return {
     type: actionTypes.TMDB_FETCH_MOVIE,
     movie,
+    productType,
   };
 };

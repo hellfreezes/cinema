@@ -10,8 +10,11 @@ import Movie from './containers/MovieDetails/MovieDetails';
 function App() {
   const routes = (
     <Switch>
+      <Route path="/tv/:id">
+        <Movie type="tv" />
+      </Route>
       <Route path="/movie/:id">
-        <Movie />
+        <Movie type="movie" />
       </Route>
       <Route path="/" exact>
         <Showcase />
