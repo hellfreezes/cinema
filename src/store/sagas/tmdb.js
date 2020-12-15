@@ -50,3 +50,19 @@ export function* fetchMovieSaga(action) {
     console.log(error);
   }
 }
+
+export function* fetchSimilarMovieSaga(action) {
+  const url = `/${action.productType}/${action.id}/similar`;
+  const params = {
+    api_key: apiKey,
+  };
+  try {
+    const response = yield axios.get(url, { params: { ...params } });
+    // console.log(response);
+    yield put(
+      actions.tmdbFetchSimilar(response.data.results, action.productType)
+    );
+  } catch (error) {
+    console.log(error);
+  }
+}

@@ -36,17 +36,16 @@ const MovieMiniCard = ({ movie, moveLeft }) => {
         className={classes.Canvas}
         style={{
           backgroundImage: `url("https://image.tmdb.org/t/p/w200${movie.image}")`,
-        }}
-      >
+        }}>
         <div className={classes.Backdrop}>
           <div className={classes.BackdropPlay}>
             <PlayCircleFilledWhiteOutlinedIcon
               style={{ font: 'inherit' }}
-              onClick={(event) => playCircleClickHandler(event, movie.id)}
+              onClick={event => playCircleClickHandler(event, movie.id)}
             />
           </div>
+          <div className={classes.CanvasAddButton}>Add to wish list</div>
         </div>
-        <div className={classes.CanvasAddButton}>Add to wish list</div>
       </div>
       <div className={classes.Title}>{movie.title}</div>
       <div className={classes.Details}>

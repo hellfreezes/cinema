@@ -6,4 +6,6 @@ export {
   tmdbFetchGenres,
   tmdbInitiateFetchMovie,
   tmdbFetchMovie,
+  tmdbInitiateFetchSimilar,
+  tmdbFetchSimilar,
 } from './tmdb';

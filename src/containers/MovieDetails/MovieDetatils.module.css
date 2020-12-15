@@ -29,8 +29,13 @@
 
 .PosterRow {
   box-sizing: border-box;
-  display: flex;
   flex: 0 0 30%;
+  display: none;
+}
+
+.PosterRowMobile {
+  box-sizing: border-box;
+  display: flex;
 }
 
 .Poster {
@@ -64,10 +69,15 @@
 
 .MainRow {
   box-sizing: border-box;
-  padding: 0 1.5rem;
+  padding: 0 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
-  flex: 0 0 70%;
+  flex: 0 0 100%;
+  overflow: hidden;
+}
+
+.MainRow .Carousel {
+  max-height: 100px;
 }
 
 @media (min-width: 600px) {
@@ -78,5 +88,16 @@
 
   .Main {
     padding: 0 65px;
+  }
+
+  .PosterRow {
+    display: flex;
+  }
+  .PosterRowMobile {
+    display: none;
+  }
+
+  .MainRow {
+    flex: 0 0 70%;
   }
 }

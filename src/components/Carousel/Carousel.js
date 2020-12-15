@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
 import classes from './Carousel.module.css';
 
-import * as actions from '../../store/actions';
-
-import MovieMiniCard from '../../components/MovieMiniCard/MovieMiniCard';
+import MovieMiniCard from '../MovieMiniCard/MovieMiniCard';
 
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import SkipPrevIcon from '@material-ui/icons/SkipPrevious';
@@ -12,18 +9,7 @@ import SkipPrevIcon from '@material-ui/icons/SkipPrevious';
 const Carousel = React.memo(props => {
   const [scroll, setScroll] = useState(0);
 
-  const { config } = props;
-  const movies = useSelector(state => state.tmdb.movies);
-
-  const dispatch = useDispatch();
-  const tmdbInitiateFetchMovies = useCallback(
-    config => dispatch(actions.tmdbInitiateFetchMovies(config)),
-    [dispatch]
-  );
-
-  useEffect(() => {
-    tmdbInitiateFetchMovies(config);
-  }, [tmdbInitiateFetchMovies, config]);
+  const { movies } = props;
 
   const nextButtonHandler = () => {
     setScroll(scroll + 100);
@@ -33,8 +19,8 @@ const Carousel = React.memo(props => {
   };
 
   const cardsMap =
-    Array.isArray(movies[config.name]) &&
-    movies[config.name].map(card => (
+    Array.isArray(movies) &&
+    movies.map(card => (
       <MovieMiniCard key={card.id} movie={card} moveLeft={scroll} />
     ));
 

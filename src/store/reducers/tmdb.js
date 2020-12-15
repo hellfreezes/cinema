@@ -5,12 +5,13 @@ const initialState = {
   movie: {},
   movies: {},
   genres: {},
+  similar: [],
 };
 
 const fetchGenres = (state, action) => {
   const fetchedGenres = [];
   if (action.genres && Array.isArray(action.genres)) {
-    action.genres.forEach((genre) => {
+    action.genres.forEach(genre => {
       fetchedGenres[genre.id] = genre.name;
     });
   }
@@ -27,7 +28,7 @@ const fetchGenres = (state, action) => {
 const fetchMovies = (state, action) => {
   let mappedMovies = [];
   if (action.movies && Array.isArray(action.movies)) {
-    mappedMovies = action.movies.map((movie) => {
+    mappedMovies = action.movies.map(movie => {
       let genresString = '';
       genresString =
         movie.genre_ids &&
@@ -66,6 +67,39 @@ const fetchMovie = (state, action) => {
   };
 };
 
+const fetchSimilar = (state, action) => {
+  let mappedMovies = [];
+  if (action.movies && Array.isArray(action.movies)) {
+    mappedMovies = action.movies.map(movie => {
+      let genresString = '';
+      genresString =
+        movie.genre_ids &&
+        movie.genre_ids.reduce((prev, curr) => {
+          return prev + ' ' + (GENRES.tv[curr] + ', ' || '');
+        }, '');
+      genresString = genresString.slice(0, -2);
+      return {
+        id: movie.id,
+        type: action.productType,
+        title: movie.title || movie.name,
+        image: movie.poster_path,
+        backdrop: movie.backdrop_path,
+        year: movie.release_date || movie.first_air_date,
+        minutes: movie.vote_count,
+        genre: genresString,
+        miniDeatails: movie.vote_average,
+      };
+    });
+  }
+
+  const similar = mappedMovies;
+
+  return {
+    ...state,
+    similar,
+  };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.TMDB_FETCH_MOVIES:
@@ -74,6 +108,8 @@ const reducer = (state = initialState, action) => {
       return fetchGenres(state, action);
     case actionTypes.TMDB_FETCH_MOVIE:
       return fetchMovie(state, action);
+    case actionTypes.TMDB_FETCH_SIMILAR:
+      return fetchSimilar(state, action);
     default:
       return state;
   }
