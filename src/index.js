@@ -18,10 +18,12 @@ const rootReducer = combineReducers({
   tmdb: tmdbReducer,
 });
 
-const composeEnhancers =
-  process.env.NODE_ENV === 'development'
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-    : null;
+let composeEnhancers = null;
+if (process.env.NODE_ENV === 'development') {
+  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+} else {
+  composeEnhancers = compose;
+}
 
 const sagaMiddleware = createSagaMiddleware();
 
